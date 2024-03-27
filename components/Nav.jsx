@@ -18,7 +18,7 @@ const Nav = () => {
     })();
   }, []);
   const handleSignOut = () => {
-    signOut({ callbackUrl: '/' });
+    signOut();
   };
 
   return (

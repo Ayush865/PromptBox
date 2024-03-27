@@ -8,8 +8,16 @@ import Form from "@components/Form";
 
 const CreatePrompt = () => {
   const router = useRouter();
-  const { data: session } = useSession();
-
+  const { data: session ,status} = useSession({
+    required:true,
+    onUnauthenticated(){
+      router.push('/')
+    }
+  });
+  if(status==="loading")
+  {
+    return "Loading...";
+  }
   const [submitting, setIsSubmitting] = useState(false);
   const [post, setPost] = useState({prompt: "", tag: "" });
 
